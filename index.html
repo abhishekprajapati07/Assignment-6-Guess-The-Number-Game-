@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assignment-6</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Number Guessing Game</h2>
+        <input class="hello" type="number"   placeholder="Enter number between 1 to 100" id="blank">
+        
+        
+        <button onclick="startGame()">Start The Game</button>
+        <br>
+        <p id="text">Note-Refresh your tab after every turn</p>
+        
+        <p id="txt"></p>
+        <p id="result"></p>
+        
+        </div>
+        <!-- From here Java Script code is written -->
+        <script>
+            function startGame(){
+               
+                input=document.getElementById('blank').value;
+                let c=0; temp=0;
+                if(input>=1 && input<=100)
+                    {
+                    temp=0;
+                    while(c<5)
+                    {
+                        let guess=Math.floor(Math.random()*9 + 1);
+                        text= "<p> Computer guessed &nbsp;" + guess + "</p>"
+                        document.getElementById("result").innerHTML+= text
+                        if(input==guess)
+                        {
+                          temp=1;
+                          break;
+                        }
+                        c++
+                    }
+                    if(temp==1)
+                    {
+                        document.getElementById("txt").innerHTML="Computer Wins";
+                    }
+                    else{
+                        document.getElementById("txt").innerHTML="You Win";
+                    }
+                    
+                }
+                else{
+                        document.getElementById("txt").innerHTML="Enter the correct number";
+                    }
+
+            }
+        </script>
+</body>
+</html>
